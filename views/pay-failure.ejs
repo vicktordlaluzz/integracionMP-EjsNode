@@ -2,34 +2,75 @@
     <%- include('shared/nav') -%>
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <img class="card-img-top" src="https://integracionmp-nodejs.herokuapp.com/api/articulos/imgs/<%= item.img%>" alt="">
-                </div>
-                <div class="col-md-6">
-                    <br>
-                    <br>
-                    <h1>
-                        <%= item.nombre%>
-                    </h1>
-                    <hr>
-                    <h3>
-                        <%= item.descripcion%>
-                    </h3>
-                    <hr>
-                    <h5><strong>Precio:</strong>
-                        <%= new Intl.NumberFormat("es-MX", {style: "currency", currency: "MXN"}).format(item.precio) %>
-                    </h5>
-                    <hr>
-                    <div class="row">
+                <div class="col-md-8 offset-md-2">
 
-                        <div class="col-md-6">
-                            <a class="btn btn-block btn-danger" href="/">Regresar</a>
-                        </div>
-                        <div class="col-md-6">
-                            <a class="btn btn-block btn-success" href="<%=init_point%>">Pagar la compra</a>
-                        </div>
-                    </div>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th class="text-center" colspan="2">Estado de su pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>collection_id:</th>
+                                <td>
+                                    <%= data.collection_id %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>collection_status:</th>
+                                <td>
+                                    <%= data.collection_status %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>external_reference:</th>
+                                <td>
+                                    <%= data.external_reference %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>merchant_account_id:</th>
+                                <td>
+                                    <%= data.merchant_account_id %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>merchant_order_id:</th>
+                                <td>
+                                    <%= data.merchant_order_id %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>payment_type:</th>
+                                <td>
+                                    <%= data.payment_type %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>preference_id:</th>
+                                <td>
+                                    <%= data.preference_id %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>processing_mode:</th>
+                                <td>
+                                    <%= data.processing_mode %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>site_id:</th>
+                                <td>
+                                    <%= data.site_id %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <hr>
+                    <a href="/" class="btn btn-block btn-danger">Regresar a la tienda</a>
                 </div>
+
             </div>
         </div>
         <%- include('shared/footer') -%>
