@@ -1,0 +1,33 @@
+<%- include('shared/head') -%>
+    <%- include('shared/nav') -%>
+        <div class="container">
+            <div class="row">
+                <% for(var i=0; i < items.length; i++) { %>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="<%='https://integracionmp-nodejs.herokuapp.com/api/articulos/imgs/' + items[i].img%>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%=items[i].nombre%>
+                                </h5>
+                                <p class="card-text">
+                                    <strong><%=items[i].descripcion %></strong>
+                                </p>
+                                <p>
+                                    <strong>Precio:</strong>
+                                    <%= new Intl.NumberFormat("es-MX", {style: "currency", currency: "MXN"}).format(items[i].precio) %>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="col-md-12">
+                                    <a class="btn btn-block btn-primary" type="button" href="/comprar/<%=items[i]._id%>" ">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+
+            </div>
+        </div>
+        <%- include('shared/footer') -%>
